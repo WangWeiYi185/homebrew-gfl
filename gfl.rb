@@ -4,7 +4,7 @@
 class Gfl < Formula
   desc ""
   homepage ""
-  url "https://github.com/WangWeiYi185/ag_flutter_cli/releases/download/0.0.1/v0.0.1.tar.bz2"
+  url "https://github.com/WangWeiYi185/ag_flutter_cli/releases/download/0.0.2/v0.0.2.tar.bz2"
   sha256 ""
   license ""
 
@@ -19,6 +19,16 @@ class Gfl < Formula
     #system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     #system "make", "install"
     bin.install "gfl"
+    (libexec).install "urlimport"
+
+    # 编译 Cpython exec 流程
+    # ENV.prepend_create_path "PYTHONPATH", libexec/"urlimport"
+    # system "python", *Language::Python.setup_install_args(libexec)
+
+    # bin.env_script_all_files(libexec/"urlimport", :PYTHONPATH => ENV["PYTHONPATH"])
+ 
+    ENV["PYTHONPATH"] = `#{prefix}/libexec/"urlimport`
+    
   end
 
   test do
