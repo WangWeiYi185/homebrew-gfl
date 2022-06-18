@@ -27,7 +27,7 @@ class Gfl < Formula
 
     # bin.env_script_all_files(libexec/"urlimport", :PYTHONPATH => ENV["PYTHONPATH"])
  
-    ENV["PYTHONPATH"] = `#{prefix}/libexec/"urlimport`
+    ENV["PYTHONPATH"] = `#{prefix}/libexec/urlimport`
     
   end
 
