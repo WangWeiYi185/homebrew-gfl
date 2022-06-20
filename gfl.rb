@@ -24,12 +24,13 @@ class Gfl < Formula
     (libexec).install "urlimport"
 
     # 编译 Cpython exec 流程
-    ENV.prepend_create_path "PYTHONPATH", libexec/"urlimport"
+    #ENV.prepend_create_path "PYTHONPATH", libexec/"urlimport"
 
 
-    system "python3", *Language::Python.setup_install_args(libexec/"urlimport")
-    bin.env_script_all_files(libexec/"urlimport", :PYTHONPATH => ENV["PYTHONPATH"])
-
+    #system "python", *Language::Python.setup_install_args(libexec/"urlimport")
+    #bin.env_script_all_files(libexec/"urlimport", :PYTHONPATH => ENV["PYTHONPATH"])
+    
+    system `export PYTHONPATH=$PYTHONPATH:#{prefix}`
     #ENV["PYTHONPATH"] = `#{prefix}/libexec/urlimport`
     
   end
