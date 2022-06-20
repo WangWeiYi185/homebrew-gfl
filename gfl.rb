@@ -9,7 +9,7 @@ class Gfl < Formula
   license ""
 
   depends_on "python3"
-  include Language::Python::Virtualenv
+  include Language::Python
 
   # depends_on "cmake" => :build
 
@@ -22,26 +22,16 @@ class Gfl < Formula
     #system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     #system "make", "install"
     bin.install "gfl"
-    #(libexec).install "urlimport"
-    venv = virtualenv_create(libexec)
-    # Install all of the resources declared on the formula into the virtualenv.
-    venv.pip_install "urlimport"
-    # `pip_install_and_link` takes a look at the virtualenv's bin directory
-    # before and after installing its argument. New scripts will be symlinked
-    # into `bin`. `pip_install_and_link buildpath` will install the package
-    # that the formula points to, because buildpath is the location where the
-    # formula's tarball was unpacked.
-    venv.pip_install_and_link buildpath
+    (libexec).install "urlimport"
     virtualenv_install_with_resources
 
-
     # 编译 Cpython exec 流程
-    # ENV.prepend_create_path "PYTHONPATH", libexec/"urlimport"
-    # system "python", *Language::Python.setup_install_args(libexec/"urlimport")
-    # bin.env_script_all_files(libexec/"urlimport", :PYTHONPATH => ENV["PYTHONPATH"])
+    ENV.prepend_create_path "PYTHONPATH", libexec/"urlimport"
+    system "python", *Language::Python.setup_install_args(libexec/"urlimport")
+    bin.env_script_all_files(libexec/"urlimport", :PYTHONPATH => ENV["PYTHONPATH"])
     
 
-    # ENV["PYTHONPATH"] = `#{prefix}/libexec/urlimport`
+    #ENV["PYTHONPATH"] = `#{prefix}/libexec/urlimport`
     
   end
 
