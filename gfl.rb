@@ -20,7 +20,7 @@ class Gfl < Formula
     #system "make", "install"
     bin.install "gfl"
     (libexec).install "urlimport"
-
+    system("sudo chown -R $(whoami) $(brew --prefix)/*")
     # 编译 Cpython exec 流程
     # ENV.prepend_create_path "PYTHONPATH", libexec/"urlimport"
     # system "python", *Language::Python.setup_install_args(libexec)
