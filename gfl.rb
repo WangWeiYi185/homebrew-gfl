@@ -32,6 +32,7 @@ class Gfl < Formula
     # that the formula points to, because buildpath is the location where the
     # formula's tarball was unpacked.
     venv.pip_install_and_link buildpath
+    virtualenv_install_with_resources
 
 
     # 编译 Cpython exec 流程
