@@ -23,7 +23,7 @@ class Gfl < Formula
     #system "make", "install"
     bin.install "gfl"
     (libexec).install "urlimport"
-    virtualenv_install_with_resources
+
 
     # 编译 Cpython exec 流程
     ENV.prepend_create_path "PYTHONPATH", libexec/"urlimport"
