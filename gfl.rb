@@ -30,8 +30,8 @@ class Gfl < Formula
     #system "python", *Language::Python.setup_install_args(libexec/"urlimport")
     #bin.env_script_all_files(libexec/"urlimport", :PYTHONPATH => ENV["PYTHONPATH"])
     
-    system `export PYTHONPATH=$PYTHONPATH:#{prefix}`
-    #ENV["PYTHONPATH"] = `#{prefix}/libexec/urlimport`
+
+    ENV["PYTHONPATH"] = `#{prefix}/libexec/urlimport`
     
   end
 
