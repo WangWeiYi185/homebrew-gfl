@@ -26,7 +26,10 @@ class Gfl < Formula
     # system "python", *Language::Python.setup_install_args(libexec)
 
     # bin.env_script_all_files(libexec/"urlimport", :PYTHONPATH => ENV["PYTHONPATH"])
- 
+    # 权限问题
+    system "sudo", "chown", "-R" , "\"$USER\"", ":admin" "/Library/Caches/Homebrew"
+
+    
     ENV["PYTHONPATH"] = `#{prefix}/libexec/urlimport`
     
   end
