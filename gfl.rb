@@ -9,6 +9,7 @@ class Gfl < Formula
   license ""
 
   depends_on "python3"
+  include Language::Python::Virtualenv
 
   # depends_on "cmake" => :build
 
