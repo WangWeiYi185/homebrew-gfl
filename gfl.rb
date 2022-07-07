@@ -4,7 +4,7 @@
 class Gfl < Formula
   desc ""
   homepage ""
-  url "https://github.com/WangWeiYi185/ag_flutter_cli/releases/download/0.0.2/v0.0.2.tar.bz2"
+  url "https://github.com/WangWeiYi185/ag_flutter_cli/releases/download/0.0.3/v0.0.3.tar.bz2"
   sha256 ""
   license ""
 
